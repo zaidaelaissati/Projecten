@@ -56,6 +56,7 @@ EJS
 TypeScript
 
 📌 Functionaliteiten
+
 ✅ Gebruiker aanmaken (met naam & e-mail)
 
 ✅ Kosten toevoegen en bekijken
