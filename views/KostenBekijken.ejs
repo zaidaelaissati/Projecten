@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kosten Bekijken</title>
+    <link rel="stylesheet" href="/css/kostenBekijken.css">
+</head>
+<body>
+    <%- include("partials/header") %>
+    <section class="kostenbox">
+
+ 
+    <h1>De kosten van <%= user.username %> zijn:</h1>
+<section class="filterEnZoek">
+    <!-- Filter formulier -->
+    <form action="/expenses/KostenBekijken" method="get">
+      
+      <!-- zoekbalk filteren op naam -->
+
+        <label for="search">Zoeken op omschrijving:</label>
+        <input type="text" id="search" name="search" placeholder="Zoek uitgaven...">
+        <button type="submit">Zoek</button>
+   
+    <!-- filter op type -->
+        <label for="type">Filter op type:</label>
+        <select name="type" id="type">
+            <option value="">Alle</option>
+            <option value="incoming" 
+            <% if (typeFilter === 'incoming') { %>selected<% } %>>Inkomen</option>
+            <option value="outgoing" <% if (typeFilter === 'outgoing') { %>selected<% } %>>Uitgave</option>
+        </select>
+        <button type="submit">Filter</button>
+    </form>
+      
+</section>
+    <section class="kosten">
+       
+        <p id="totalExpenses">Je hebt <%= totalExpenses %> euro gespendeerd.</p>
+        <p id="budgetOver">Je hebt nog <%= budgetOver %> euro over van je budget.</p>
+        <!-- als er meer dan 0 uitgaven zijn dan wordt er in de expenses geloopt en gezocht-->
+        <% if (expenses&& expenses.length > 0) { %>
+            <% expenses.forEach(item => { %>
+                <section class="expense-item">
+                    <p>Omschrijving: <%= item.description %></p>
+                    <p>Bedrag: <%= item.amount %> euro</p>
+                    <p>Categorie: <%= item.category %></p>
+                    <p>Datum: <%= item.date %></p>
+                    <p>Betaalmethode: <%= item.paymentMethod.method %></p>
+                    <p>Type: 
+                        <% if (item.isIncoming) { %>
+                            Inkomen
+                        <% } else { %>
+                            Uitgave
+                        <% } %>
+                    </p>
+                    <% if (item.paymentMethod && item.paymentMethod.CardDetail) { %>
+                        <p>Kaartnummer: <%= item.paymentMethod.CardDetail.cardNumber %></p>
+                        <p>Vervaldatum: <%= item.paymentMethod.CardDetail.expiryDate %></p>
+                    <% } %> 
+                    <p>Betaald: 
+                        <% if (item.isPaid) { %>
+                            Ja
+                        <% } else { %>
+                            Nee
+                        <% } %>
+                    </p>
+                    <hr>
+
+                    <!-- verijwderknop -->
+                    <form action="KostenVerwijderen/<%= item._id %>" method="post" style="display:inline;">
+                        <button type="submit">Verwijderen</button>
+                    </form>
+
+                    <!-- bijwerken knop -->
+
+    <!-- Formulier voor het bijwerken van een specifieke kostenpost -->
+    <form action="/expenses/KostenBewerken/<%= item._id %>" method="get">
+        <button type="submit">Bewerken</button>
+    </form>
+    
+    
+
+                </section>
+            <% }); %>
+        <% } else { %>
+            <p>Je hebt geen kosten toegevoegd die aan het filter voldoen.</p>
+        <% } %>
+
+    
+    </section> 
+
+    <!-- Terugknop -->
+    <button type="button" id="terugknop">
+        <a href="/indexEjs">Terug naar de hoofdpagina</a> 
+    </button>
+
+</section>
+<%- include("partials/footer") %>
+</body>
+
+</html>

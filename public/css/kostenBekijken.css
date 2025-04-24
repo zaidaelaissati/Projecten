@@ -1,0 +1,176 @@
+body{
+    background-color: #f4f4f9;
+}
+.kostenbox{
+    display: flex;
+    flex-direction: column;
+
+}
+.kosten {
+    margin-left:2rem;
+   
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+  
+    color: #333;
+    display: flex;
+    flex-direction:column;
+    min-height: 100vh;
+}
+
+p {
+    margin: 0.5rem 0;
+    font-size: 16px;
+}
+
+h1 {
+    color: #25539a;
+    font-size: 24px;
+    margin-left: 3rem;
+}
+
+.expense-item {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 1rem;
+
+    margin: 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 90%;
+    max-width: 400px;
+}
+
+button {
+    background-color: #25539a;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 1rem;
+    transition: background-color 0.3s ease;
+    width: 15rem;
+    margin-left: 2rem;
+}
+
+button:hover {
+    background-color: #673ab7;
+}
+
+button a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+form {
+    display: flex;
+   flex-direction: row;
+    gap: 1rem; 
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+
+form> label {
+    margin-right: 0.5rem;
+}
+
+
+
+
+.filterEnZoek{
+    margin-left: 3rem;
+}
+#search {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; 
+    max-width: 200px; 
+   
+}
+#type {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%; 
+    max-width: 200px; 
+}
+
+#totalExpenses{
+    color: red;
+}
+#budgetOver{
+    color:green;
+}
+#terugknop{
+    width: 15rem;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+        margin-left: 1rem;
+    }
+
+    .kosten {
+        margin-left: 1rem;
+    }
+
+    button {
+        width: 15rem;
+        margin-left: 0;
+    }
+
+    .expense-item {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    p {
+        font-size: 14px;
+    }
+    #type,#search{
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+       
+    }
+
+    .expense-item {
+        padding: 0.25rem;
+    }
+    .filterEnZoek>form{
+      display: flex;
+      flex-direction: column;
+  align-items: flex-start;
+    }
+
+    .filterEnZoek{
+        margin-left: 1rem;
+    }
+
+        #search {
+            padding: 0.25rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%; 
+            max-width: 200px; 
+           
+        }
+        #type {
+            padding: 0.5rem; padding: 0.25rem;  border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%; 
+            max-width: 200px; 
+        }
+}

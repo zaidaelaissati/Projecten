@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/registratiepagina.css">
+</head>
+<body>
+    <h2>Registreren</h2>
+    <form action="/register" method="POST">
+        <label for="username">Gebruikersnaam:</label>
+        <input type="text" name="username" id="username" required>
+        
+        <label for="email">E-mail:</label>
+        <input type="email" name="email" id="email" required>
+        
+        <label for="password">Wachtwoord:</label>
+        <input type="password" name="password" id="password" required>
+       
+        <!-- bonusvraag -->
+
+        <label for="monthlyLimit">Maandelijks Budget:</label>
+        <input type="number" name="monthlyLimit" id="monthlyLimit" required><br>
+    
+        <label for="notificationThreshold">Drempel voor notificaties: Een threshold proportie (waarde tussen 0 en 1) waarbij de gebruiker een notificatie wil ontvangen dat hij bijna zijn budget gaat overschrijden. (bv. 0.9 voor 90%).</label>
+        <input type="number" name="notificationThreshold" id="notificationThreshold" required><br>
+    
+        <label for="isActive">Wil je notificaties ontvangen?</label>
+        <input type="checkbox" name="isActive" id="isActive"><br>
+        <button type="submit">Registreer</button>
+    </form>
+</body>
+</html>

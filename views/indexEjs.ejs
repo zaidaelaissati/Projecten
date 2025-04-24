@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/hoofdpagina.css">
+
+    <title></title>
+</head>
+
+<body>
+    <%- include("partials/header") %>
+   <section class="index">
+
+  
+    <% if (user) { %>
+        <h1>Dag <%= user.username %>!</h1>
+        <p>User ID: <%= user._id %></p>
+        <p>Email: <%= user.email %></p>
+        <p>Uw maandelijkse budget is: <%= user.budget.monthlyLimit %> euro</p>
+    <% } else { %>
+        <h1>Welkom! Log in om verder te gaan.</h1>
+    <% } %>
+    <h2>Kies een optie:</h2>
+<section class="knoppen">
+    <button type="button">
+        <a href="/expenses/KostenToevoegen">Kosten toevoegen</a>
+    </button>
+    <button>
+        <a href="/expenses/KostenBekijken">Kosten Bekijken</a>
+    </button>
+    <button>
+        <a href="/logout">Uitloggen</a>
+    </button>
+
+</section>
+</section>
+   
+  
+    
+<%- include("partials/footer") %>
+</body>
+</html>

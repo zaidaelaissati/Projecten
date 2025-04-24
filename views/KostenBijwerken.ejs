@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/KostenBewerken.css">
+</head>
+<body>
+    <form action="/expenses/KostenBewerken/<%= expense._id %>" method="POST">
+        <label for="description">Omschrijving:</label>
+        <input type="text" id="description" name="description" value="<%= expense.description %>" required>
+        
+        <label for="amount">Bedrag:</label>
+        <input type="number" id="amount" name="amount" value="<%= expense.amount %>" step="0.01" min="0" required>
+
+        <label for="isIncoming">Type:</label>
+        <select id="isIncoming" name="isIncoming">
+            <option value="true" <% if (expense.isIncoming) { %>selected<% } %>>Inkomen</option>
+            <option value="false" <% if (!expense.isIncoming) { %>selected<% } %>>Uitgaven</option>
+        </select>
+
+        <label for="date">Datum:</label>
+        <input type="date" id="date" name="date" value="<%= expense.date %>" required>
+        
+        <label for="currency">Valuta:</label>
+        <input type="text" id="currency" name="currency" value="<%= expense.currency %>" required>
+        
+        <label for="paymentMethod">Betaalmethode:</label>
+        <input type="text" id="paymentMethod" name="paymentMethod" value="<%= expense.paymentMethod.method %>" required>
+        
+        <label for="cardNumber">Kaartnummer:</label>
+        <input type="text" id="cardNumber" name="cardNumber" value="<%= expense.paymentMethod.CardDetail ? expense.paymentMethod.CardDetail.cardNumber : '' %>" required>
+        
+        <label for="expiryDate">Vervaldatum:</label>
+        <input type="text" id="expiryDate" name="expiryDate" value="<%= expense.paymentMethod.CardDetail ? expense.paymentMethod.CardDetail.expiryDate : '' %>" required>
+        
+        <label for="category">Categorie:</label>
+        <input type="text" id="category" name="category" value="<%= expense.category %>" required>
+        
+        <label for="isPaid">Betaald:</label>
+        <select id="isPaid" name="isPaid">
+            <option value="true" <% if (expense.isPaid) { %>selected<% } %>>Ja</option>
+            <option value="false" <% if (!expense.isPaid) { %>selected<% } %>>Nee</option>
+        </select>
+        
+        <button type="submit">Bewerk kosten</button>
+</body>
+</html>

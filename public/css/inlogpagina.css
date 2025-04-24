@@ -1,0 +1,170 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    background-image: url('/images/transparent-coin-icon-global-logistics-icon-euro-icon-5fd17e689635c0.5267072216075649046153.png');
+    background-size: 100px 100px; 
+    background-repeat: repeat;
+    background-position: center; 
+    animation: moveBackground 20s infinite linear;
+}
+.inledingEnBox{
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+}
+@keyframes moveBackground {
+    0% { background-position: 0 0; }
+    50% { background-position: 50px 50px; }
+    100% { background-position: 0 0; }
+}
+
+.inleiding {
+    background-color: #ffffff; 
+    padding: 10rem 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px; 
+    margin-bottom: 1.5rem; 
+    z-index: 1;
+}
+
+.inleiding h1 {
+    color: #25539a; 
+    margin-bottom: 1rem;
+    font-size: 25px; 
+}
+
+.inleiding p {
+    color: #666; 
+    font-size: 18px; 
+    line-height: 1.5; 
+    margin: 0;
+}
+
+.box {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+    z-index: 1;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 1.5rem;
+    font-size: 24px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-align: left;
+    font-size: 14px;
+    color: #666;
+}
+
+input {
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+input:focus {
+    outline: none;
+    border-color: #7e57c2;
+    box-shadow: 0 0 5px rgba(126, 87, 194, 0.3);
+}
+
+button {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #25539a;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #673ab7;
+}
+
+@media (max-width: 768px) {
+    .inledingEnBox{
+       display: flex;
+        flex-direction: column;
+        
+    }
+    .inleiding {
+        padding: 5rem 1rem;
+        width: 80%;
+    }
+
+    .box {
+        width: 80%;
+    }
+
+    h1 {
+        font-size: 22px;
+        
+    }
+
+    label {
+        font-size: 12px;
+    }
+
+    input {
+        font-size: 12px;
+    }
+
+    button {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+  
+    .inleiding {
+        padding: 3rem 0.5rem;
+        width: 90%;
+    }
+
+    .box {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 18px;
+      
+      
+    }
+
+    label {
+        font-size: 11px;
+    }
+
+    input {
+        font-size: 11px;
+    }
+
+    button {
+        font-size: 12px;
+    }
+  
+}
